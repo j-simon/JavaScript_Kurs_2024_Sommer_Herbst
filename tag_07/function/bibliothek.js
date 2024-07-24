@@ -1,4 +1,5 @@
 'use strict';
+let globalText="hi";
 // Ein-Teilprogramm
 /**
    Diese Funktion soll einen Newsletter an einer Person adressieren.
@@ -14,6 +15,7 @@ let showNewsletter = (firstName) => {
     // V
 
     // A
+   
     console.log(`Dear ${firstName},\n`);
     console.log(`We're pleased to inform you that NerdWorld is making a number of new discounts available to you. Please visit http://www.nerdworld.example/discounts for detailed information.`);
     console.log('Happy nerding,\nYour NerdWorld Team');

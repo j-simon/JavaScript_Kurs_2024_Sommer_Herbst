@@ -25,9 +25,11 @@ if (playerFitness === 'yes') {
 
         // ab hier beginnt die Übung
 
-        let fightTwo = prompt(`Yeah, you got it. ${fightOne} is right! The dark side has no chance at this point.\nWhat\'s the German word for if?`  );
+        let fightTwo = prompt(`Yeah, you got it. ${fightOne} is right! The dark side has no chance at this point.\nWhat\'s the German word for if?` 
+                     ).toLowerCase()
+        
 
-        if (fightTwo === 'wenn' || fightTwo === 'falls') {
+        if (fightTwo === 'wenn'|| fightTwo === 'falls') {
             alert("That's a small step for a programmer, but a giant leap in this fight!");
             let fightThree = prompt(
                 "That's a small step for a programmer, but a giant leap in this fight!\nNow, please enter string with a length between 8 and 15 characters…"
