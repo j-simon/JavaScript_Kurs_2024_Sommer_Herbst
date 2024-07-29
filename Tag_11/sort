@@ -1,0 +1,35 @@
+const array1 = [30, 1, 4, 10021, 100000];
+array1.sort();
+console.log(array1);
+// Expected output: Array [1, 100000, 21, 30, 4]
+
+
+let  sortiereRichtig = (x,y) => {
+ if (x > 3000) // in Blöcken vor und nach 3000 sortieren
+    return y - x
+ } // absteigend  tauschen oder nicht tauschen
+// let  sortiereRichtig = (x,y) =>  x - y // aufsteigend tauschen oder nicht tauschen
+array1.sort(sortiereRichtig)
+console.log('✌️array1.sort(sortiereRichtig) --->', array1.sort(sortiereRichtig));
+
+
+// Wiederholung
+/*[0] a
+[1] b
+
+[1] a
+[2] b */
+
+let name = ['Jens','Simon',"Zane"]
+// nach 2.Buchstaben sortieren
+// Zane , Jens, Simon
+//console.log(name.sort())
+let buchstabensortierFunktion = (x,y) => {
+    console.log("x=", x)
+    console.log("y=", y)
+
+    if (x.charAt(1) < y.charAt(1))
+        return -1; // tausche
+ 
+}
+console.log(name.sort(buchstabensortierFunktion))
