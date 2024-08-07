@@ -1,7 +1,7 @@
 'use strict';
 
 const askForValue = (text) => {
-    const num = Number(prompt(text));
+    const num = Number(window.prompt(text));
     if (isNaN(num) || num < 0) {
         alert("Please enter a positive amount.");
         return askForValue(text);
