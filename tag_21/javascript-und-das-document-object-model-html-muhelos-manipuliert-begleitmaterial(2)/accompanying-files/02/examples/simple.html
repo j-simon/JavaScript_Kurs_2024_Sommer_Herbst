@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Hello World</title>
+  <script src="../../lib/dom_helper.js"></script>
+</head>
+
+<body>
+  <h1>Hello <em>World</em></h1>
+
+  <h2></h2>
+  <h2></h2>
+
+  <script>
+    // const $ = (selek) => document.querySelector(selek)
+
+    //document.querySelector("h1").innerHTML="hallo!"
+    $("h1").innerHTML = "hallo!"
+    $$("h2").forEach((element,index) => {
+      element.innerHTML="Überschrift "+ (index+1)
+    });
+  </script>
+</body>
+
+</html>

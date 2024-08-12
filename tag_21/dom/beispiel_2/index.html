@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            h1 {
+                background-color: aquamarine;
+            }
+        </style>
+    </head>
+    <body>
+      
+        <!-- direkt über dem schliessenden body-Tag -->
+        <script>
+            
+            document.querySelector("body").innerHTML = `
+            <h1>
+                <div style='color:red'>Guten morgen, JavaScript</div>
+            </h1> 
+            <a href="https://google.de">Google</a>`  // lesen
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Selector Testing</title>
+  </head>
+
+  <body>
+    <ul id="ul1">
+      <li id="li11"><span>11</span></li>
+      <li id="li12">12</li>
+      <li id="li13">13</li>
+      <li id="li14">14</li>
+    </ul>
+    <ul id="ul2">
+      <li id="li21"><span>21</span></li>
+      <li id="li22">
+        <strong><span>22</span></strong>
+        <strong><span>12</span></strong>
+      </li>
+      <li id="li23">23</li>
+    </ul>
+    <script>
+      let idElement=document.querySelector("#li22")
+      console.log('idElement --->', idElement);
+
+      idElement.querySelector("span").innerHTML="XXXX"
+
+      //
+      let element = document.querySelector("#li22 > strong:nth-child(1) > span:nth-child(1)")
+      console.log('element --->', element);
+      element.innerHTML="XXXX"
+      
+    </script>
+  </body>
+</html>

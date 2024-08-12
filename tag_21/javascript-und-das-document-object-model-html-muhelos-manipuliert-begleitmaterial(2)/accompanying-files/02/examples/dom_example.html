@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"></meta>
+    <title>DOM-Example</title>
+    <link rel="stylesheet" href="../../css/styles.css" type="text/css" media="screen" />
+  <style>
+/*body > header:nth-child(1) > nav:nth-child(1) > ul:nth-child(1) > li:nth-child(2)
+    {
+      border: 2px solid red;
+    }*/
+  </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li></li>
+          <li id="liZuVeraendern"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <article>
+        <h1></h1>
+        <p></p>
+        <img alt="" src="#" />
+      </article>
+    </main>
+
+    <footer>
+      <nav></nav>
+    </footer>
+
+    <script>
+      document.querySelector("#liZuVeraendern").innerHTML="nochmal auf 2 geaendert" 
+      document.querySelectorAll("li").innerHTML="nochmal auf 2 geaendert" 
+      document.querySelectorAll("li").forEach( (li,index) => li.innerHTML= (index+101) ) 
+   </script>
+  </body>
+</html>
+
