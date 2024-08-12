@@ -43,7 +43,11 @@
     <script>
       document.querySelector("#liZuVeraendern").innerHTML="nochmal auf 2 geaendert" 
       document.querySelectorAll("li").innerHTML="nochmal auf 2 geaendert" 
+
       document.querySelectorAll("li").forEach( (li,index) => li.innerHTML= (index+101) ) 
+      Array.from(document.querySelectorAll("li")).map( (li,index) => li.innerHTML= (index+1001) ) 
+      
+      Array.from(document.querySelectorAll("li")).filter( (li,index) => index % 2 === 0) 
    </script>
   </body>
 </html>
