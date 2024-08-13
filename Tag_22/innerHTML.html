@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Hallo!</p>
+    Hallo Welt!
+    <script>
+
+         let meinObjekt = {
+             innerHTML: "Hallo Welt!"
+         }
+         let inhaltMeinObjekt = meinObjekt.innerHTML
+        //  console.log(inhaltMeinObjekt)
+         meinObjekt.innerHTML +="neu" //HalloWelt!neu"
+ 
+
+
+
+
+
+        // let inhalt = document.querySelector("body").innerHTML // lesen
+        // console.log(inhalt)
+        // document.querySelector("body").innerHTML = "neu" // schreiben
+
+        let pInhalt = document.querySelector("p").innerHTML // lesen
+        console.log(pInhalt)
+        let grossInhalt=pInhalt.toUpperCase()
+        document.querySelector("p").innerHTML += grossInhalt // Hallo!HALLO!
+
+        
+    </script>
+</body>
+
+</html>

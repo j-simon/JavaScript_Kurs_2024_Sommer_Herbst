@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fett {
+            font-weight: bold;
+        }
+
+        .rot {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="text" class="fett fett">Hallo Welt</p>
+
+    <script>
+
+        let domNode = document.querySelector("#text")
+        console.log(domNode)
+
+        let klassenlisteFürDasPTag = domNode.classList
+        console.log(klassenlisteFürDasPTag)
+        console.log(klassenlisteFürDasPTag.length) // Wie viele Klassen hat das p-Tag 1
+
+        // Fügen eine weitere Klasse "rot " hinzu
+        klassenlisteFürDasPTag.add("rot")
+        console.log(klassenlisteFürDasPTag)
+        console.log(klassenlisteFürDasPTag.length) // Wie viele Klassen hat das p-Tag 1
+
+        // Klasse löschen
+        klassenlisteFürDasPTag.remove("fett")
+        console.log(klassenlisteFürDasPTag)
+        console.log(klassenlisteFürDasPTag.length) // Wie viele Klassen hat das p-Tag 1
+
+        console.log(klassenlisteFürDasPTag)
+        // klassenlisteFürDasPTag[1]="fett"
+
+        console.log(klassenlisteFürDasPTag)
+
+        // toggle wechseln  add oder remove
+        klassenlisteFürDasPTag.toggle("fett") // kommt hinzu, weils es vorher nicht da war
+        console.log(klassenlisteFürDasPTag)
+
+        klassenlisteFürDasPTag.toggle("rot") // rot verschwindet, weil es da war
+        console.log(klassenlisteFürDasPTag)
+
+        console.log(klassenlisteFürDasPTag.contains("rot"))
+        console.log(klassenlisteFürDasPTag.contains("fett"))
+
+        klassenlisteFürDasPTag.add("fett")
+        console.log(klassenlisteFürDasPTag)
+        console.log(klassenlisteFürDasPTag.length) // Wie viele Klassen hat das p-Tag 1
+
+        klassenlisteFürDasPTag.remove("fett")
+        console.log(klassenlisteFürDasPTag)
+        console.log(klassenlisteFürDasPTag.length) // Wie viele Klassen hat das p-Tag 1
+
+        klassenlisteFürDasPTag.remove("fett")
+        console.log(klassenlisteFürDasPTag)
+        console.log(klassenlisteFürDasPTag.length) // Wie viele Klassen hat das p-Tag 1
+
+        klassenlisteFürDasPTag.remove("fett")
+        console.log(klassenlisteFürDasPTag)
+        console.log(klassenlisteFürDasPTag.length) // Wie viele Klassen hat das p-Tag 1
+        klassenlisteFürDasPTag.remove("fett")
+        console.log(klassenlisteFürDasPTag)
+        console.log(klassenlisteFürDasPTag.length) // Wie viele Klassen hat das p-Tag 1
+        klassenlisteFürDasPTag.remove("fett")
+        console.log(klassenlisteFürDasPTag)
+        console.log(klassenlisteFürDasPTag.length) // Wie viele Klassen hat das p-Tag 1
+        
+    </script>
+</body>
+
+</html>

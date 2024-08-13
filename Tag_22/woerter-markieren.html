@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Specific Word Color</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #toggleButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="toggleButton">Toggle Red for "change"</button>
+    <p id="textParagraph">
+        Die ist ein einfacher Text in dem alle Wörter die <span class="changeWord">Jens</span> heissen rot gefärbt werden. <span class="changeWord">Jens</span> wünscht euch einen schönen guten Morgen.
+    </p>
+
+    <script>
+        const toggleButton = document.querySelector('body');
+        const changeWords = document.querySelectorAll('.changeWord');
+
+        toggleButton.addEventListener(
+        
+            //  'click',
+            'mousemove',
+             () =>   changeWords.forEach((word)=>word.classList.toggle("red"))          
+        
+            );
+    </script>
+
+</body>
+</html>
