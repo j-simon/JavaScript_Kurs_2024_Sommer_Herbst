@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Article Detail Page</title>
+  <style>
+    *,
+    html {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      color: #444;
+      font-weight: normal;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      padding: 0.5em;
+    }
+
+    .coffee_break_article {
+      background-color: BurlyWood;
+    }
+
+    .normal_length_article {
+      background-color: #cafe69;
+    }
+
+    .lone_weekend_article {
+      background-color: DarkTurquoise;
+    }
+
+    .container {
+      margin: 0 auto;
+      padding: 1rem;
+      max-width: 1140px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <h1>Lorem ipsum</h1>
+    <section id="content">
+      <p>Lorem ipsum dolor sit. 23</p>
+
+      <p>Lorem, ipsuöläöäk ölkk k tempora alias perspiciatis. Nostrum explicabo nobis tempora.87</p>
+
+      <p>
+        785 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam id eaque non perferendis voluptates quos
+        nobis fuga, ut deserunt blanditiis consectetur. Neque consequuntur nihil ab incidunt tempore esse iure ad
+        excepturi aut autem porro magni, doloribus, non unde, eveniet deserunt magnam explicabo vitae expedita
+        accusantium et voluptas commodi aperiam. Non, maiores voluptas rerum facere tempore earum vero facilis modi
+        totam incidunt aspernatur ducimus quos minima aliquid. Placeat cum optio, quibusdam expedita recusandae ex
+        deleniti sequi deserunt nam amet quo earum ipsam, quam sunt! Nobis doloremque quos officia dignissimos quibusdam
+        eaque ipsam nam magni, ratione deserunt laudantium sequi excepturi commodi laboriosam!
+      </p>
+
+
+
+
+
+
+
+
+
+
+    </section>
+  </main>
+  <script>
+    'use strict'
+
+
+    const $$ = (qs) => Array.from(document.querySelectorAll(qs));
+    // $$("p").forEach( p => p.classList.add("coffee_break_article"))
+    // $$("p").forEach( p => p.classList.add("normal_length_article"))
+    $$("p").forEach(p => {
+      console.log("Inhalt: ",p.innerHTML)
+      console.log("Länge: ",p.innerHTML.length)
+      if (p.innerHTML.length <= 30)
+        {
+          console.log("Fall 1")
+          p.classList.add("coffee_break_article")
+        }
+      else if (p.innerHTML.length <= 100)
+      {
+        console.log("Fall 2")
+        p.classList.add("normal_length_article")
+      }
+      else
+      {
+        console.log("Fall 3") 
+        p.classList.add("lone_weekend_article")
+      }
+    })
+
+  </script>
+
+
+</body>
+
+</html>

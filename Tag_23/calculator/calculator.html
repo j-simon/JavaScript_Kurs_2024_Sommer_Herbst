@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculator</title>
+
+  <!--script src="calculator.js" defer="defer"></script-->
+
+  <style type="text/css">
+    #display {
+      width: 140px;
+    }
+
+    #keyfield {
+      width: 130px;
+      padding: 5px;
+      border: 1px solid black;
+    }
+
+    #keyfield>button {
+      width: 40px;
+      height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <p><input type="text" id="display" value="...hier bitte tippen" /></p>
+  <div id="keyfield">
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    
+  </div>
+  <button id ="loeschen">loeschen</button>
+  <script>
+
+    // const alleButtons = document.querySelectorAll("#keyfield button")
+    // const button7 = alleButtons[0]
+
+    // button7.addEventListener(
+    //   "click",
+    //   () => {
+    //     console.log("Button 7 geclickt !")
+
+    //   }
+    // )
+    const alleButtons = document.querySelectorAll("#keyfield button")
+
+    //nur für die 7
+    // const button7 = alleButtons[0]
+
+    // button7.addEventListener(
+    //   "click",
+    //   () => {
+    //     // Eventhandler
+    //     console.log("Button 7 geclickt !")
+
+    //     // 1. Wert Beschaffung von dem geclickten
+    //     let zahl = button7.innerHTML
+    //     console.log('zahl --->', zahl);
+
+    //     // 2.Wert zu einem anderen Selektoren transportieren
+    //     const display=document.querySelector("#display")
+    //     console.log('display --->', display);
+    //     display.value+=zahl
+
+    //   }
+    // )
+    // DON'T REPEAT YOURSELF
+    // alleButtons.forEach((button,) => button.addEventListener(
+    //   "click",
+    //   (e) => { // Eventhandler
+    //     console.log(e.target)
+
+    //      // 1. Wert Beschaffung von dem geclickten
+    //     let zahl = e.target.innerHTML
+    //     console.log('zahl --->', zahl);
+
+    //      // 2.Wert zu einem anderen Selektoren transportieren
+    //     const display=document.querySelector("#display")
+    //     console.log('display --->', display);
+    //     display.value+=zahl
+
+    //   }
+    // ))
+
+    alleButtons.forEach((button,) => button.addEventListener("click",(e) => document.querySelector("#display").value+=e.target.innerHTML))
+  
+    const buttonLoeschen = document.querySelector("#loeschen")
+
+    buttonLoeschen.addEventListener(
+       "click",
+       (e) => document.querySelector("#display").value="")
+  </script>
+</body>
+
+</html>

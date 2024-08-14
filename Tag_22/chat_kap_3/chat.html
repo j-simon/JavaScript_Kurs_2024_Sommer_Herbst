@@ -8,34 +8,16 @@
   <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
  
   
-  <script defer src="script.js"></script>
-  <script async src="../../lib/dom_helper.js"></script>
+  <!--script defer src="script.js"></script>
+  <script async src="../../lib/dom_helper.js"></script-->
 
 </head>
 
 <body>
-  <header></header>
 
-  <main>
-    <h1>Chat</h1>
 
-    <div id="chat">
-      <div id="chat_window">
-        <div id="chat_history">
-          <p>
-            <span class="chat_member chat_member1">Ladislaus:</span>
-            Anybody there?
-          </p>
-          <p>
-            <span class="chat_member chat_member2">Friedlinde</span>
-            Yes, me!
-          </p>
-        </div>
-
-        <div id="chat_text">
-          <input type="text" placeholder="...new message..." />
-        </div>
-      </div>
+  
+    
 
       <ul id="chat_members">
         <li class="admin">Heribert</li>
@@ -46,11 +28,23 @@
         <li>Ladislaus</li>
       </ul>
 
-      <div id="member_search">
-        <input type="text" placeholder="...Find a member..." />
-      </div>
-    </div>
-  </main>
+      <!-- 
+      Schritte
+       1.) Selektor ( 1 Element)
+       2.) classList
+       3.) remove()
+       4.) add()
+      -->
+<script>
+
+document.querySelector("#chat_members li").classList.add("highlighted")
+document.querySelector("#chat_members li").classList.add("highlighted")
+document.querySelector("#chat_members li").classList.add("highlighted")
+document.querySelector("#chat_members li").classList.remove("highlighted")
+document.querySelector("#chat_members li").classList.remove("highlighted")
+
+</script>
+  
  
   
 </body>

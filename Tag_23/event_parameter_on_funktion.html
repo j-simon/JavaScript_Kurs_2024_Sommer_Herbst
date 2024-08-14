@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+   
+<div onclick="alert('hi')">hallo</div>
+
+   <div>
+
+    <button>double-click-1</button>
+    <button>double-click-2</button>
+    <div>Textmeldung</div>
+</div>
+
+    <script>
+
+        const input=document.querySelector("input")
+        const button=document.querySelector("button")
+        const div=document.querySelector("div")
+
+        input.addEventListener(
+            'keypress',
+            (e)=>console.log(e)
+        )
+        div.addEventListener(
+            'click',
+            (e)=>console.log(e.target)
+        )
+    </script>
+
+</body>
+</html>
+<script>
+const $on = (el, ev, fn) => {
+    Array.isArray(el)
+      ? el.forEach((ae) => {
+          return $on(ae, ev, fn);
+        })
+      : el.addEventListener(ev, fn);
+    return el;
+  };
+
+  const callbackInputClick= (e)=>console.log(e.target)
+  $on(input,'click',callbackInputClick)
+</script>
