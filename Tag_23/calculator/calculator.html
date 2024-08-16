@@ -37,9 +37,9 @@
     <button>1</button>
     <button>2</button>
     <button>3</button>
-    
+
   </div>
-  <button id ="loeschen">loeschen</button>
+  <button id="loeschen">loeschen</button>
   <script>
 
     // const alleButtons = document.querySelectorAll("#keyfield button")
@@ -92,13 +92,33 @@
     //   }
     // ))
 
-    alleButtons.forEach((button,) => button.addEventListener("click",(e) => document.querySelector("#display").value+=e.target.innerHTML))
-  
-    const buttonLoeschen = document.querySelector("#loeschen")
+    // alleButtons.forEach((button,) => button.addEventListener("click",(e) => document.querySelector("#display").value+=e.target.innerHTML))
 
-    buttonLoeschen.addEventListener(
-       "click",
-       (e) => document.querySelector("#display").value="")
+    // const buttonLoeschen = document.querySelector("#loeschen")
+
+    // buttonLoeschen.addEventListener(
+    //    "click",
+    //    (e) => document.querySelector("#display").value="")
+    const $ = (q) => document.querySelector(q);
+    const $$ = (q) => Array.from(document.querySelectorAll(q));
+
+
+    const $on = (el, ev, fn) => {
+      Array.isArray(el)
+        ? el.forEach((ae) => {
+          return $on(ae, ev, fn);
+        })
+        : el.addEventListener(ev, fn);
+      return el;
+    };
+
+    console.log($on($$('#keyfield > button'), 'click', (e) => ($('#display').value += e.target.innerHTML)))
+
+    $on(
+      $on($$('#keyfield > button'), 'click', (e) => ($('#display').value += e.target.innerHTML)),
+      'mouseenter',
+      (e) => console.log(e.target.innerHTML)
+    );
   </script>
 </body>
 

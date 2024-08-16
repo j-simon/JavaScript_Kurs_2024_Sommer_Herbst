@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input  id="inputElement" type="text" value="" />
+    <progress class="red fett" id="id1" max="10.0" value="5.7"></progress>
+    
+    <img width="10" src="../img/newsboard_paperclip.png">
+    <img src="light_off.png">
+    <script>
+
+        // JS-Attribut das im HTML auch als Attribut im Element 
+        
+        // 1. IDL-Attribut 
+        // document.querySelector("input").value="hier gib einen Text ein" // Schreiben
+        // console.log(document.querySelector("input").value) // Lesen
+  
+        // 2. Content-Attribut
+        document.querySelector("input").setAttribute("value","noch einen Text")
+        console.log(document.querySelector("input").getAttribute("value"))
+        
+        //document.querySelector("progress").value=10
+        console.log(document.querySelector("progress").value) // Original Datentyp
+        console.log(document.querySelector("progress").getAttribute("value"))
+        
+        console.log(document.querySelector("img").width) // Original Datentyp
+        console.log(document.querySelector("img").getAttribute("width"))
+
+
+        // Ausnahmen 
+        // 1. Attribut class : classList
+        console.log(document.querySelector("progress").class)
+        console.log(document.querySelector("progress").getAttribute("class"))
+        // 2. Atribute style : Handling ist kompliziert
+        // document.querySelector("#inputElement").id="jens"
+        // document.querySelector("#inputElement").id="tom"
+
+        console.log(document.querySelector("#inputElement").disabled)
+        console.log(document.querySelector("#inputElement").getAttribute("disabled"))
+
+        // $().id="l"
+        // $().data-meins="nuer Wert"
+
+        document.querySelectorAll("img")[1].src="light_on.png"
+  </script>
+</body>
+</html>
