@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* HTML - Tag */
+        p {
+            font-size: 30px
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <p style="color:green">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga maiores totam quisquam libero
+        amet. Sint nihil culpa laudantium tempore impedit iste sunt sapiente. Omnis, tempora temporibus est voluptatibus
+        deserunt repudiandae.</p>
+
+    <script>
+        console.log(getComputedStyle(document.querySelector('p')).fontSize)
+
+        document.querySelector('p').style = "color:yellow" //;font-size:10rem" // schreiben
+        console.log("auslesen font-size:",document.querySelector('p').style.fontSize)
+
+        let fontSizeJS = document.querySelector('p').style.fontSize // "100px"
+        let fontSizeOhnePX = parseInt(fontSizeJS) // 100
+        let cssEinheit = fontSizeJS.replace(fontSizeOhnePX, '')
+        console.log(cssEinheit)
+        fontSizeOhnePX += 50 //erhöhe um 50 // 60
+        let fontSizeMitPX = fontSizeOhnePX + cssEinheit
+        document.querySelector('p').style.fontSize = fontSizeMitPX // font-size : 60px
+        document.querySelector('p').style.backgroundColor="rgb(100,200,23)"
+        console.log(document.querySelector('p').style.backgroundColor)
+
+    </script>
+</body>
+
+</html>
