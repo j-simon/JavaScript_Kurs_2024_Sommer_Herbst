@@ -69,11 +69,14 @@
     // Vorsicht man kann Methode auch nachträglich wieder löschen
     // delete Person.prototype.wieHeisstDu 
     // person2.wieHeisstDu()
+
+    
+   
 }
 {
     console.log("\n4. Funktion Schreibweise OHNE prototype Eerweiterung im JavaScript Hintergrund")
     //////////////////////////////////////////////////////////////////////
-    // 4. Funktion Schreibweise OHNE prototype Eerweiterung im JavaScript Hintergrund
+    // 4. Funktion Schreibweise OHNE prototype Erweiterung im JavaScript Hintergrund
     function Person(vorname, nachname) {
         this.vorname = vorname
         this.nachname = nachname
@@ -84,16 +87,21 @@
 
     let person1 = new Person("Jens", "Simon");
     let person2 = new Person("Tim", "Schmitz");
+    console.log("person2",person2)
     person1.wieHeisstDu()
     person2.wieHeisstDu()
 
     // person3 = person2 // verboten
 
     // 1. Objekt kopieren
-    person3 = Object.create(person2)
-
+    let person3 = Object.create(person2)
+    console.log("person3 vorname",person3.vorname)
+    console.log("person3 nachname",person3.nachname)
     // 2. constructor
-    person4 = new Person.constructor(person2.vorname,person2.nachname)
+    let person4 = new person1.constructor("Vorname","Nachname")
+    console.log("person4",person4)
+
+    
 
    
 }
