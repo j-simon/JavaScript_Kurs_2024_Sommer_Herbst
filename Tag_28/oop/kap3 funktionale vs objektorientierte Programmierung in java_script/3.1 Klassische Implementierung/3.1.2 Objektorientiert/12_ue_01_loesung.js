@@ -10,6 +10,7 @@ class RemoteControl {
   switchProgramm(channel) {
     console.log(`new channel: ${channel}`);
   }
+  
 }
 
 const remoteControl = new RemoteControl(70);

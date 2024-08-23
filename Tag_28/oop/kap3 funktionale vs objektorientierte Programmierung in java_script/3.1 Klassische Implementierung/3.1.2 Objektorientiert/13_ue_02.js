@@ -15,7 +15,9 @@ class User {
   }
 }
 
+// Nuzung
 const user = new User('Christine', 'TopSecret123');
 
-console.log(user.login('TopSecret123')); // login successfull
+console.log(user.login('TopS23')); // login successfull
 console.log(user.changePassword('EvenMoreSecret42')); // password changed succe
+console.log(user.login('EvenMoreSecret42')); // login successfull
