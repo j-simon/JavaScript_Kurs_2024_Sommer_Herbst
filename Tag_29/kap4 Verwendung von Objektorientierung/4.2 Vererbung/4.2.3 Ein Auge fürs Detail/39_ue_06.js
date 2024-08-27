@@ -1,28 +1,43 @@
+'use strict'
 class Engine {
-    constructor(horsepower, consumption) {
-      this.horsepower = horsepower;
-      this.consumption = consumption;
-    }
-  
-    logData() {
-      console.log(
-        `This engine has ${this.horsepower} horsepower and only a consumption
-              of ${this.consumption} liter per 100 km.`
-      );
-    }
+  horsepower
+  consumption
+
+  constructor(horsepower, consumption) {
+    this.horsepower = horsepower;
+    this.consumption = consumption;
   }
+
+  logData() {
+    console.log(
+      `This engine has ${this.horsepower} horsepower and only a consumption
+              of ${this.consumption} liter per 100 km.`
+    );
+  }
+}
 
 // hier die class ElectricEngine aufbauen
 // ..
+class ElectricEngine extends Engine {
+
+  // constructor(horsepower, consumption){
+  //   super(horsepower,consumption)
+  // }
+  // ueberscheiben overriding
+  logData() {
+    console.log(
+      `This engine has ${this.horsepower} horsepower and only a consumption
+              of ${this.consumption} kWh per 100 km.`
+    );
+  }
+}
 
 
-// Es fehlte die Nutzumg, also sinnloser Code ! :-(
+let engine = new Engine(300,10) // 300PS, 10l pro 100km
+console.log('engine --->', engine);
+engine.logData()
 
-// Im Video wurde das nachgeholt
-const engine = new Engine(150, 8)
+let electricEngine = new ElectricEngine(800,5) // 800PS, 5k kWh pro 100km
+console.log('electricEngine --->', electricEngine);
+electricEngine.logData()
 
-const electricEngine = new ElectricEngine(200, 15)
-
-const allEngines = [engine, electricEngine]
-
-allEngines.forEach(engine => engine.logData())

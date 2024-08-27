@@ -32,6 +32,6 @@ const engine = new Engine(150, 8)
 
 const electricEngine = new ElectricEngine(200, 15)
 
+// Polymorphie / unterschiedliche Objekt in einer Massenverarbeitung
 const allEngines = [engine, electricEngine]
-
 allEngines.forEach(engine => engine.logData())

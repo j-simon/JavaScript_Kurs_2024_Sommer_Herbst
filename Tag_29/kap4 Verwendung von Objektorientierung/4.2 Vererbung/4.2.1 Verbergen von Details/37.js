@@ -21,9 +21,11 @@ class Customer {
 // die Klasse oben ist von mir hinzugefuegt worden, damit das funktioniert!
 
 class VIPCustomer extends Customer {
-    constructor(name, id) {
+    constructor(name, id,a) {
         // Kind-Klasse(sub-Klasse) Eltern-Klasse(super-Klasse)
          super(name, id); // wende dich an deine Klasse aus der du kopiert wurdest
+         this.a=0
+         
        // constructor() dr Super-Klasse umleitung
     }
 }
