@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Top Waschmaschine<br>Schönes Produkt, nur zu teuer<br>999.99<br>
+    <button>kauf es trotzdem</button></div>
+
+    <div><h2>Warenkorb</h2>
+        <div id="ware"></div>
+    </div>
+    <script>
+        'use strict'
+        const produkte=[
+            {
+                name:"Top Waschmaschine",
+                preis:999.99
+            }, // weitere Produkte
+        
+        ]
+        // hier kann das Objekt immutable gemacht werden
+        // const produkt = Object.freeze(produkte[0])
+        // Object.freeze(produkte) // das Array aber auch
+        //produkte[0].preis=22
+        console.log("produkte[0].preis=200 , dann in den Warenlrob legen ;-)")
+        let addToWarenkorb=()=>{
+            console.log("addToWarenkorb geklickt!")
+            let ware=document.querySelector("#ware").innerHTML=produkte[0].name+"<br>"+produkte[0].preis
+        }
+console.log(document.querySelector("button"))
+        document.querySelector("button").addEventListener("click",
+            addToWarenkorb
+        )
+    </script>
+</body>
+</html>

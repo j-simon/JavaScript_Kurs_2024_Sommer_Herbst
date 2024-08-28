@@ -2,15 +2,15 @@ class Person {
     constructor(name) {
         this.alter=42
         this.name = name;
-        this.getName = this.getName.bind(this);
-        this.gehtWasAuch = this.gehtWasAuch.bind(this);
+        //this.getName = this.getName.bind(this);
+        //this.gehtWasAuch = this.gehtWasAuch.bind(this);
     }
 
-    getName() {
+    getName=()=> {
         console.log(this)
         return this.name;
     }
-    gehtWasAuch(){
+    gehtWasAuch=()=>{
         return this.name + "-" +this.alter
     }
 }
