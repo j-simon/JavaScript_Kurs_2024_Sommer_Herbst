@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip ohne Statemanagement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding-top: 50px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .history {
+            margin-top: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+        .history li {
+            background-color: #fff;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .result-box {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            margin: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .highlight {
+            border-color: #000;
+            background-color: #ddd;
+        }
+    </style>
+    <script src="./script.js" defer ></script>
+</head>
+<body>
+    <h1>Coin Flip Game ohne Staemanagement</h1>
+    <button class="button" id="flipButton">Flip Coin</button>
+    <button class="button" id="clearButton">Clear History</button>
+    <h2>Flip Result:</h2>
+    <div class="result-box" id="headsBox">Heads</div>
+    <div class="result-box" id="tailsBox">Tails</div>
+    <h2>Last 5 Draws:</h2>
+    <ul class="history" id="historyList">
+        <!-- hier kommt die History rein -->
+    </ul>
+</body>
+</html>

@@ -2,16 +2,19 @@
 
 function Animal(age, gender, speed) {
     // Attributes of Animal
-    if (new.target === Animal) throw 'abstract class cannot be instantiated'
+    if (new.target === Animal)  throw new Error('Du solls keine Instanz von animal bilden')
     this.age = age
     this.gender = gender
     this.speed = speed
+    this.getAge = function () {
+      return `${this.age} years`
+    }
   }
   
   // Methods of Animal
-  Animal.prototype.getAge = function () {
-    return `${this.age} years`
-  }
+  // Animal.prototype.getAge = function () {
+  //   return `${this.age} years`
+  // }
   
   Animal.prototype.setAge = function (age) {
     const exp = new RegExp(/\d+/)
@@ -34,7 +37,7 @@ function Animal(age, gender, speed) {
     return this.speed
   }
   
-  Animal.prototype.move = function () {
+  Animal.prototype.move = function  () {
     return `with a maximum speed of ${this.speed} km/h`
   }
   
@@ -50,17 +53,19 @@ function Animal(age, gender, speed) {
     return `The ${this.species} is eating the ${callback()}`
   }
   
+
   class Bird extends Animal {
     constructor(age, gender, speed) {
         // Constructor of Bird
         super(age, gender, speed)
-        this.species = 'bird'
+        this.species = 'Bird'
     }
   
-    // Methods of Bird
-    fly() {
-        return `The ${this.species} flys ${this.move()}`
-    }
+    
+  }
+
+  Bird.prototype.fly = function() {
+      return `The ${this.species} flys ${this.move()}`
   }
   
   class Fish extends Animal {
@@ -68,7 +73,7 @@ function Animal(age, gender, speed) {
         // Constructor of Fish
         super(age, gender, speed)
         this.species = 'Fish'
-        // Functions of Fish
+        // Methods of Fish
         this.swim = function () {
             return `The ${this.species} swims ${this.move()}`
         }
@@ -82,14 +87,21 @@ function Animal(age, gender, speed) {
     }
   }
   
-  const food = {
-    // Name of food
-    name: 'alga',
+  const food =  {
+  //   // Name of food
+    name: 'pommes rot weiss',
   }
   
   function getFoodName() {
     return this.name
   }
+  
+
+  /////////////////////////////////////////////////////////
+
+  //const animal = new Animal(3,'nothing',30)
+  //console.log("nach new Animal(...)")
+  //console.log(animal.getAge())
   
   const bird = new Bird(4, 'female', 20)
   
@@ -103,5 +115,5 @@ function Animal(age, gender, speed) {
   
   console.log(fish.getGender()) // male
   console.log(fish.swim()) // The fish swims with a maximum speed of 10 km/h
-  console.log(bird.eatAnimal(fish.getSpecies)) // The bird is eating the Fish
+  console.log(bird.eatAnimal(     fish.getSpecies      )) // The bird is eating the Fish
   console.log(fish.eatFood(getFoodName.call(food))) // The Fish eats the alga

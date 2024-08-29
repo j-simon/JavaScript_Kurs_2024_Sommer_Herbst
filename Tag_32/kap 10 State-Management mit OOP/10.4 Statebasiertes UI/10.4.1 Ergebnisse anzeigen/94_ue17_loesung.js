@@ -1,0 +1,9 @@
+// ...
+
+function init() {
+    updateUI();
+  }
+  
+  init();
+  
+  // ...
