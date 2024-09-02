@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
     // console.log("init aufgerufen!")
-    new CoinFlipManager();
+     CoinFlipManager();
 }
 
 function CoinFlipManager() {
@@ -56,7 +56,10 @@ Vorsicht: das loest bereits updateUI aus und führt zu einer Fehlermeldung
   
         ///////////////////////////
         function getState() {
-            return { ...state.value };
+            console.log("state",state)
+            console.log("state.value",state.value)
+            console.log("{ ...state.value }",{ ...state.value })
+            return { ...state.value }; // kopie
         }
 
         // dispatch bedeutet "versenden"
