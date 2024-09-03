@@ -1,0 +1,9 @@
+npm update
+oder
+npm update express
+wird nichts bringen, aussser es bleibt 4.17.3
+
+wenn man wirklich aktuell werden wil muss man
+
+in der package.json die Version von Hand auf  ^4.17.0 ändern, und dann 
+npm update ausführen 

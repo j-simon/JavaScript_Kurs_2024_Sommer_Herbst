@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "simon-fs-json": "^1.1.0"
+  }
+}
