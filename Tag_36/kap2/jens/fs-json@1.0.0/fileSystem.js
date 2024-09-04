@@ -44,6 +44,9 @@ function removeShoppingListEntryFor(userId, entry = '', database = 'database.jso
 }
 
 function removeFromList(userId, entry, databaseObject) {
+console.log('userId --->', userId);
+    
+    //databaseObject={"727272":{}}
     if (!databaseObject[userId] || !databaseObject[userId].includes(entry)) return databaseObject;
 
     if (entry) {
@@ -62,6 +65,8 @@ function updateShopingListFor(userId, list = '', database = 'database.json') {
     let databaseObject = loadDataObject(database);
   
     databaseObject = removeFromList(userId, '', databaseObject);
+console.log('databaseObject --->', databaseObject);
+    
     if (list) databaseObject = addToList( userId,list, databaseObject);
       
     saveDataObject(databaseObject, database);
@@ -82,3 +87,21 @@ module.exports = {
     updateShopingListFor,
     removeShoppingListEntryFor,
 };
+saveShoppingListFor('727272', 'bread, cheese, chicken, banana');
+saveShoppingListFor('727299', 'beer, water, beef');
+console.log(loadDataObject('database.json')); // { '727272': 'bread, cheese, chicken, banana', '727299': 'beer, water, beef' }
+updateShopingListFor('727272', 'chicken');
+console.log(loadDataObject('database.json')); // { '727272': 'chicken', '727299': 'beer, water, beef' }
+updateShopingListFor('727272');
+console.log(loadDataObject('database.json')); // { '727299': 'beer, water, beef' }
+
+
+// readShoppingListOf(11)
+// saveShoppingListFor(11,"Tee, Kuchen")
+// saveShoppingListFor(11)
+// readShoppingListOf(11)
+// updateShopingListFor(11,"Keks, Zimt")
+// // // updateShopingListFor(11)
+// // readShoppingListOf(11)
+// removeShoppingListEntryFor(11,"Keks")
+// // removeShoppingListEntryFor(11)
