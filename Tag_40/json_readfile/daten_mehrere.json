@@ -1,0 +1,23 @@
+{
+ "users":[  {
+   "vorname" : "Jens",
+   "nachname" : "Simon"
+
+},
+{
+   "vorname" : "Tim",
+   "nachname" : "Schmitze"
+
+}]
+
+,
+   "lists":[  {
+     "entries" : "Brot, Butter"
+      
+  },
+  {
+     "entries" : "Milch, Obst"
+       
+  }]
+  
+  }

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const ShoppingList = require('./../models/shoppingList');
+
 const database = {
     "123": "inhalt von 123",
     "456": "inhalt von 456",
@@ -11,8 +11,9 @@ const database = {
   // http://localhost:3000/test_methode/123
   // http://localhost:3000/test_methode/456
   router.get('/:userId', (req, res) => {
-   
+    
     console.log("req.originalUrl", req.originalUrl); // 1. url 
+    
     console.log("req.method", req.method) // 2. methode
     console.log("req.params.userId", req.params.userId) // parameter für userId, als parametrisierte url
     console.log("database", database)
@@ -26,7 +27,7 @@ const database = {
   
   //////////////////////////////////////////
   ///////// P O S T ////////////////////////
-  router.post('/', async (req, res) => {
+  router.post('/', (req, res) => {
     console.log("req.originalUrl", req.originalUrl); // 1. url 
     console.log("req.method", req.method) // 2. methode
     // console.log("req.params.userId", req.params.userId) // parameter für userId, als parametrisierte url
@@ -34,7 +35,7 @@ const database = {
     console.log('userID --->', userId);
     const inhalt = req.body.inhalt
     console.log('inhalt --->', inhalt);
-  /*
+  
   
     if (database[req.params.userId] != undefined)  // vorhanden
       res.status(404).send("");
@@ -43,17 +44,8 @@ const database = {
       database[userId] = inhalt
       console.log("database", database)
       res.status(200).send("");
-    }*/
+    }
   
- let { id, list } = req.body;
-id=userId
-list=inhalt
-  const shoppingList = await ShoppingList.find();
-console.log(id,shoppingList)
-  if (shoppingList) {
-    res.status(409).send('ID already exists');
-    return;
-  }
   });
   
   //////////////////////////////////////////

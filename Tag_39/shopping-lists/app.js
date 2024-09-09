@@ -64,41 +64,53 @@ app.use('/top-secret-ue8', (request, response) => {
 // uebung_09
 // http://localhost:3000/top-secret-ue9
 app.use('/top-secret-ue9', (req, res, next) => {
-  console.log(`Someone entered the secret route: ${req.originalUrl}`);
+  console.log(`Someone entered the secret route uebung_09 : ${req.originalUrl}`);
   next();
 });
 
 app.use('/top-secret-ue9', (req, res, next) => {
-  res.status(403).send('This area is top secret!');
-  return;
+  res.status(403).send('This area is top secret! uebung_09');
+  return; // kann weg, da kommt ja nichts mehr danach!
+
+
+
+
 });
 
+
+
 // uebung_10
+// match für get/post/put .. alle methods
 app.use('/get-route/:age', (req, res, next) => {
   if (req.params.age < 18) {
     res.status(403).send('Sorry, you have to be at least 18 years old to continue.');
-    return;
-  }
+    return; // kann nicht weg, weil sonst 2 x geantwortet wird , das darf man nicht!
+  } 
+  
   next();
 });
-
+// match get
 app.get('/get-route/:age', (req, res, next) => {
   res.send('Adult zone!');
+
+
 });
 
 
 // uebung_11
-app.use('/login-route', (req, res, next) => {
+// match für get/post/put .. alle methods
+app.use("/login-route", (req, res, next) => {
   if (req.body.username && req.body.password) {
     console.log('username: ' + req.body.username);
     console.log('password: ' + req.body.password);
-    next();
-    return;
+    next(); // -> zu nächsten middleware
+     return;
   }
   res.status(422).send('cannot process data');
   return;
 });
 
+// match post
 app.post('/login-route', (req, res) => {
   res.send('login successful');
 });

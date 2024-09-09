@@ -1,4 +1,17 @@
 const express = require('express');
+// // mongodb
+// const mongoose = require('mongoose')
+// mongoose.connect('mongodb://127.0.0.1:27017/testi');
+// const db = mongoose.connection;
+// db.on('error', (error) => console.error(error));
+// db.once('open', () => {
+//   console.error('Database connection successful')
+
+
+
+// });
+
+
 const {
   readShoppingListOf,
   saveShoppingListFor,
@@ -10,9 +23,17 @@ const {
 
 const router = express.Router();
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id',  (req, res, next) => {
   const { id } = req.params;
   res.send(`Shopping list for User ${id}: ${readShoppingListOf(id)}`);
+//   // Insert a simple document into a collection
+// db.collection('users').insertOne({ u: 'jens', p: '__geheim_' }, (err, result) => {
+//   if (err) { 
+//       console.error('Error inserting document:', err);
+//   } else {
+//       console.log('Document inserted:', result);
+//   }
+// });
 });
 
 router.post('/', (req, res, next) => {
