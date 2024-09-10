@@ -21,7 +21,8 @@ db.once('open', () => {
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var apiShoppingListRouter = require('./routes/apiShoppingList');
+//var apiShoppingListRouter = require('./routes/apiShoppingList');
+var shoppingListRouter = require('./routes/shoppingLists');
 
 console.log("die 'app' wird jetzt (neu)-gestartet!")
 
@@ -146,9 +147,9 @@ app.post('/login-route', (req, res) => {
 // externe Route Dateien
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/test_methode', apiShoppingListRouter);
+//app.use('/test_methode', apiShoppingListRouter);
 // uebung_12
-const shoppingListsRouter = require('./routes/shoppingLists_ue12');
+const shoppingListsRouter = require('./routes/shoppingLists');
 app.use('/shopping-lists', shoppingListsRouter);
 
 ////////////////////////////////////////

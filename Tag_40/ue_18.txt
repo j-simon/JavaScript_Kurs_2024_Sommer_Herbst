@@ -1,0 +1,2 @@
+// .env_Datei im root-Verzeichnis von express anlegen
+DATABASE_URL=mongodb://127.0.0.1:27017/shopping

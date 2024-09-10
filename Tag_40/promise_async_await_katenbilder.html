@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katzen Bilder</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .cat-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>10 Katzen Bilder</h1>
+    <div class="container" id="catContainer"></div>
+
+    <script>
+        const container = document.querySelector('#catContainer');
+        const apiURL = 'https://api.thecatapi.com/v1/images/search'; // The Cat API URL
+
+        // Funktion zum Laden eines Katzenbilds
+        async function loadCatImage() {
+            try {
+                const response = await fetch(apiURL);
+                const data = await response.json();
+                return data[0].url; // Rückgabe der Bild-URL
+            } catch (error) {
+                console.error('Fehler beim Laden des Katzenbilds:', error);
+            }
+        }
+
+        // Funktion zum Laden und Anzeigen mehrerer Katzenbilder
+        async function loadCatImages(count) {
+            const promises = [];
+
+            // 10 Promises erstellen und auflösen
+            for (let i = 0; i < count; i++) {
+                promises.push(loadCatImage());
+            }
+
+            // Alle Promises gleichzeitig auflösen
+            const catImages = await Promise.all(promises);
+
+            // Bilder in den Container einfügen
+            catImages.forEach(imageUrl => {
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.alt = 'Katze';
+                img.className = 'cat-image';
+                container.appendChild(img);
+            });
+        }
+
+        // Lade 10 Katzenbilder, sobald die Seite geladen wird
+        loadCatImages(10);
+    </script>
+
+</body>
+</html>
