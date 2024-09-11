@@ -21,10 +21,14 @@ const shoppingListSchema = new Schema({
 
 });
 
+// Middleware für das Löschen des HauptDokumentes über die userId -> this._id
+// es müssen auch die UnterDokumente gelöscht werden
 shoppingListSchema.pre('deleteOne', { document: true, query: false }, async function (next) {
-  console.log("shoppingListSchema.pre('deleteOne'")
-  console.log(await model('ShoppingListEntry'))
-  await model('ShoppingListEntry')({ shoppingListSchema: this._id });
-  next();
-});
+  console.log("dieses Hauptdokument wird gerade gelöscht, aus der PATCH Route ohne Unterentry", this._id)
+
+  // jetzt zusätzlich alle UnterDokumente löschen, wo die _id matcht!
+  await model('ShoppingListEntry').deleteMany({ shoppingListSchema: this._id })
+  next() // zur nächsten Middleware weiterleiten
+})
+
 module.exports = model('ShoppingList', shoppingListSchema);

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head', { title: 'Shopping Lists - Dashboard' }) %>
+
+    
+  </head>
+  <body class="flex justify-center p-8 bg-gray-50">
+    <div class="max-w-4xl w-full p-8">
+      
+      <%- include('./partials/navbar',{addLink:true}) %>
+      
+
+
+      <%- include('./partials/shoppingList',{list:[{food:'Milch'},{food:'Brot'}]}) %>
+
+       
+      </div>
+    </div>
+  </body>
+</html>
