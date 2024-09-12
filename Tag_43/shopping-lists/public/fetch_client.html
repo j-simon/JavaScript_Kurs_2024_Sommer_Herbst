@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="form">
+        userID<input type="text" name="id" value="909090"><br>
+        Liste<input type="text" name="list" placeholder="Butter, Mehl">
+        <input type="submit" id="Save" value="Save">
+    </form>
+
+    <script>
+        function createJSONBody(form) {
+            const data = new FormData(form);
+            const body = {};
+            for (let [key, value] of data) {
+                body[key] = value;
+            }
+            console.log(JSON.stringify(body))
+            return JSON.stringify(body);
+        }
+
+        const init = async (e) => {
+            e.preventDefault();
+            console.log("fetch()")
+            const res = await fetch('http://localhost:3000/api', {
+                headers: { 'Content-Type': 'application/json' },
+                method: 'POST',
+                body: createJSONBody(document.querySelector("#form"))
+                // body: `{
+                //         "id" :"123456",
+                //         "list":"Brot, Butter, Käse"
+                //         }`
+                ,//createJSONBody(e.target),
+            });
+
+            
+            
+
+        }
+
+        const saveButton = document.querySelector("#Save")
+        saveButton.addEventListener("click", (e) => init(e))
+
+
+
+
+    </script>
+</body>
+
+</html>

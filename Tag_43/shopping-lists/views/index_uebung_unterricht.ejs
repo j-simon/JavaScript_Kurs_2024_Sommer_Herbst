@@ -1,0 +1,33 @@
+<%- include('body_index', {title }) %>
+  <h1><%- title %> interpretiert</h1>
+  <p>Welcome to <%= title %> nicht interpretiert</p>
+  <p>lorem ipsum
+
+  </p>
+
+  <% words.forEach((word, i)=> { `${i+1}. ${word}<br>` }) %>
+
+
+
+  <!-- <% words.forEach((word, i)=> { %>
+  <%= `${i+1}. ${word}` %>
+    <br />
+  <% }) %> -->
+
+
+<!-- uebung_28 -->
+  <!-- <ul>
+  <% words.forEach(word=> { %>
+    <% if(word.match(/<span.*>/)) { %>
+       <li><%- word %></li>
+    <% } else { %>
+       <li>
+           <%= word %>
+       </li>
+    <% } %>
+  <% }) %>
+  </ul> -->
+
+  
+</body>
+ </html>
