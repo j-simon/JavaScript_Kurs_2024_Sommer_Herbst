@@ -12,6 +12,7 @@
         userID<input type="text" name="id" value="909090"><br>
         Liste<input type="text" name="list" placeholder="Butter, Mehl">
         <input type="submit" id="Save" value="Save">
+        <input type="submit" id="Get" value="Get">
     </form>
 
     <script>
@@ -25,9 +26,11 @@
             return JSON.stringify(body);
         }
 
+
         const init = async (e) => {
             e.preventDefault();
             console.log("fetch()")
+
             const res = await fetch('http://localhost:3000/api', {
                 headers: { 'Content-Type': 'application/json' },
                 method: 'POST',
@@ -39,6 +42,13 @@
                 ,//createJSONBody(e.target),
             });
 
+              const  res2 = await fetch('http://localhost:3000/api/909090', {
+                headers: { 'Content-Type': 'application/json' },
+                method: 'GET',
+               
+            });
+            const responseData = await res2.json();
+            console.log(responseData)
             
             
 
