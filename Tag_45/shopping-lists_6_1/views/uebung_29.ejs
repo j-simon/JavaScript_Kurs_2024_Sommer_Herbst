@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uebung_29</title>
+</head>
+
+<body>
+    <%= zahlen %>
+
+
+        <ul>
+            <% zahlen.forEach((zahl)=> { %>
+
+                <% if (zahl==0) { %>
+                    <%- include('exception',{errorTxt:"durch NULL geteilt"}) %>
+                    <% } else { %>
+                        <li>
+                            <%= (1/zahl).toFixed(2) %>
+                        </li>
+                        <% } %>
+                            <% }) %>
+        </ul>
+
+       
+</body>
+
+</html>
