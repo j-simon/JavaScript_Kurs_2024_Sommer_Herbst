@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include(`${root}/views/partials/head`, { title: 'Shopping Lists - Dashboard', cssFile: 'index.css', jsFile: 'index.js' }) %>
+  
+    
+  </head>
+  <body class="flex justify-center p-8 bg-gray-50">
+    <div class="max-w-4xl w-full p-8">
+      
+      <%- include('./partials/navbar',{addLink:true}) %>
+      
+
+
+      <!-- <%- include('./partials/shoppingList',{list:[{food:'Milch'},{food:'Brot'}]}) %> -->
+      <% if (typeof list !== 'undefined') { %>
+        <%- include(`${root}/views/partials/shoppingList`, { list: list}) %>
+    <% } %>
+       
+      </div>
+    </div>
+  </body>
+</html>

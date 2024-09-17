@@ -39,11 +39,11 @@ router.get('/register', function (req, res, next) {
 router.post('/register', [validUsername, usernameAvailable, validPassword], async function (req, res, next) {
     const { username, password } = req.body;
     const pwHash = await bcrypt.hash(password, 10);
-    let user
+    let user 
     try {
-        user= await User.create({ username: username, password: pwHash });
+       user = await User.create({ username: username, password: pwHash });
     } catch (error) {
-        console.log(error);
+        console.log("error: ",error);
         res.status(400).json({ error: 'An error occurred while creating the user' });
         return;
     }

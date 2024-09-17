@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uebung_28</title>
+</head>
+
+<body>
+    <%= words %>
+
+
+        <ul>
+            <% words.forEach((word)=> { %>
+
+                <% if (word.startsWith("<span")) { %>
+                    <li> <%- word %> </li>
+                    <% } else { %>
+                        <li>
+                            <%= word %>
+                        </li>
+                        <% } %>
+                            <% }) %>
+        </ul>
+
+        <ul>
+            <% words.forEach((word)=> { %>
+
+                <% if (word.match(/<span.*>/i)) { %>
+                    <li> <%- word %> </li>
+                    <% } else { %>
+                        <li>
+                            <%= word %>
+                        </li>
+                        <% } %>
+                            <% }) %>
+        </ul>
+</body>
+
+</html>

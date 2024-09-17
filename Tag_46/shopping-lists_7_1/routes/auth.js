@@ -41,7 +41,7 @@ router.post('/register', [validUsername, usernameAvailable, validPassword], asyn
     const pwHash = await bcrypt.hash(password, 10);
     let user
     try {
-        user= await User.create({ username: username, password: pwHash });
+       user= await User.create({ username: username, password: pwHash });
     } catch (error) {
         console.log(error);
         res.status(400).json({ error: 'An error occurred while creating the user' });

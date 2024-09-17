@@ -41,7 +41,7 @@ router.post('/register', [validUsername, usernameAvailable, validPassword], asyn
     const pwHash = await bcrypt.hash(password, 10);
     let user
     try {
-        user= await User.create({ username: username, password: pwHash });
+      user =  await User.create({ username: username, password: pwHash });
     } catch (error) {
         console.log(error);
         res.status(400).json({ error: 'An error occurred while creating the user' });
@@ -66,7 +66,11 @@ function createAndSetToken(res, data) {
       expiresIn: 3600,
     });
   
-    res.cookie('bearer', token, { httpOnly: true });
+    // res.cookie('bearer', token, { httpOnly: true });
+
+    // ohne schutz vor client veräanderung
+    // res.cookie('abc', "defg");//token, { httpOnly: false});
+    res.cookie("bearer",token, { httpOnly: false});
 
     // const token = jwt.sign({ username: user.username }, process.env.JWT_SECRET, {
     //     expiresIn: 3600,

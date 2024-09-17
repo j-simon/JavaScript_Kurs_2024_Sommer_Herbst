@@ -16,7 +16,19 @@ router.get('/login', function (req, res, next) {
 router.post('/login', [validUsername, validPassword], async function (req, res, next) {
     const { username, password } = req.body;
 
-    const user = await User.findOne({ username: username });
+    let user
+  try {
+      const response = await fetch(`http://localhost:3001/auth/username`, {
+          headers: { 'Content-Type': 'application/json' },
+          method: 'POST',
+          body: JSON.stringify({ username: username }),
+  })
+      user = (await response.json()).user
+  } catch (err) {
+      res.status(400).json({ error: err.message })
+      return
+  }
+
     const correctPassword = await bcrypt.compare(password, user?.password || '');
 
     if (!correctPassword) {
@@ -26,7 +38,7 @@ router.post('/login', [validUsername, validPassword], async function (req, res, 
 
     createAndSetToken(res, { username: user.username });
 
-    
+
     console.log("login user - OK")
     res.redirect('/');
 });
@@ -36,14 +48,14 @@ router.get('/register', function (req, res, next) {
     res.render('auth', { register: true });
 });
 
-router.post('/register', [validUsername, usernameAvailable, validPassword], async function (req, res, next) {
+router.post('/register', [validUsername, validPassword], async function (req, res, next) {
     const { username, password } = req.body;
     const pwHash = await bcrypt.hash(password, 10);
     let user
     try {
-        user= await User.create({ username: username, password: pwHash });
+        user = await User.create({ username: username, password: pwHash });
     } catch (error) {
-        console.log(error);
+        console.log("error: ", error);
         res.status(400).json({ error: 'An error occurred while creating the user' });
         return;
     }
@@ -56,16 +68,19 @@ router.post('/register', [validUsername, usernameAvailable, validPassword], asyn
 });
 
 router.get('/logout', function (req, res, next) {
+    console.log("logout")
+    //  res.json({ message: 'Logout successfull' });
     res.clearCookie('bearer').json({ message: 'Logout successfull' });
-    // res.redirect('/')
-  });
+    // res.clearCookie('bearer').redirect('/')
 
-  
+});
+
+
 function createAndSetToken(res, data) {
     const token = jwt.sign(data, process.env.JWT_SECRET, {
-      expiresIn: 3600,
+        expiresIn: 3600,
     });
-  
+
     res.cookie('bearer', token, { httpOnly: true });
 
     // const token = jwt.sign({ username: user.username }, process.env.JWT_SECRET, {
@@ -77,6 +92,6 @@ function createAndSetToken(res, data) {
     // res.cookie('bearer', token, { httpOnly: true });
 
 
-  }
+}
 
 module.exports = router;
