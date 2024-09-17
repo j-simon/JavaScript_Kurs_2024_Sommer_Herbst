@@ -11,6 +11,7 @@ function registerLogoutHandler() {
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
     });
+    
     const responseData = await response.json();
     console.log('responseData --->', responseData);
 
