@@ -1,0 +1,6 @@
+1. einmalige Installation der Modules
+npm i 
+
+2. starten
+npm run dev
+

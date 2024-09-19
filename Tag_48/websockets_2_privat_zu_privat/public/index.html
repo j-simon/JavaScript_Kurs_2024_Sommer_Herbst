@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Chat</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        ul { list-style-type: none; margin: 0; padding: 0; }
+        li { padding: 8px; margin-bottom: 10px; background-color: #f1f1f1; border-radius: 5px; }
+        input { padding: 10px; margin: 5px; width: calc(100% - 30px); }
+        button { padding: 10px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Privater Chat</h1>
+
+    <!-- Eingabefeld für den Benutzernamen -->
+    <input id="benutzername" type="text" placeholder="Dein Name" autocomplete="off">
+    <button id="setzeNameButton">Name setzen</button>
+
+    <!-- Eingabefeld für die Nachricht und den Empfänger-Namen -->
+    <ul id="nachrichten"></ul>
+    <input id="empfaengerName" type="text" placeholder="Empfänger Name" autocomplete="off">
+    <input id="nachrichtFeld" type="text" placeholder="Gib deine Nachricht ein..." autocomplete="off">
+    <button id="sendenKnopf">Private Nachricht senden</button>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        // Verbindung zum Socket.io-Server herstellen
+        const socket = io();
+
+        // Elemente auswählen
+        const nachrichten = document.getElementById('nachrichten');
+        const benutzernameFeld = document.getElementById('benutzername');
+        const setzeNameButton = document.getElementById('setzeNameButton');
+        const empfaengerNameFeld = document.getElementById('empfaengerName');
+        const nachrichtFeld = document.getElementById('nachrichtFeld');
+        const sendenKnopf = document.getElementById('sendenKnopf');
+
+        // Benutzernamen an den Server senden
+        setzeNameButton.addEventListener('click', () => {
+            const benutzername = benutzernameFeld.value;
+            if (benutzername) {
+                socket.emit('setze benutzername', benutzername);
+                alert(`Dein Name ist gesetzt: ${benutzername}`);
+            }
+        });
+
+        // Auf private Nachrichten vom Server hören
+        socket.on('private nachricht', ({ absenderName, nachricht }) => {
+            const eintrag = document.createElement('li');
+            eintrag.textContent = `Private Nachricht von ${absenderName}: ${nachricht}`;
+            nachrichten.appendChild(eintrag);
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+
+        // Auf Fehlermeldungen vom Server hören
+        socket.on('nachricht fehler', (fehlermeldung) => {
+            alert(fehlermeldung);
+        });
+
+        // Private Nachricht senden, wenn der Button geklickt wird
+        sendenKnopf.addEventListener('click', () => {
+            const empfaengerName = empfaengerNameFeld.value;
+            const nachricht = nachrichtFeld.value;
+
+            if (empfaengerName && nachricht) {
+                // Sende eine private Nachricht an den Server
+                socket.emit('private nachricht', { empfaengerName, nachricht });
+
+                // Eingabefelder leeren
+                nachrichtFeld.value = '';
+                empfaengerNameFeld.value = '';
+            }
+        });
+
+        // Nachricht auch durch Drücken der Eingabetaste (Enter) senden
+        nachrichtFeld.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendenKnopf.click();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einfacher Chat</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        ul { list-style-type: none; margin: 0; padding: 0; }
+        li { padding: 8px; margin-bottom: 10px; background-color: #f1f1f1; border-radius: 5px; }
+        input { padding: 10px; width: 80%; margin-right: 10px; }
+        button { padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Einfacher Chat</h1>
+    <ul id="nachrichten"></ul>
+    <input id="nachrichtFeld" type="text" placeholder="Gib deine Nachricht ein..." autocomplete="off">
+    <button id="sendenKnopf">Senden</button>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        // Verbindung zum Socket.io-Server herstellen
+        const socket = io(); // 1. Anmeldung beim Server
+
+        // Elemente auswählen
+        const nachrichten = document.getElementById('nachrichten');
+        const nachrichtFeld = document.getElementById('nachrichtFeld');
+        const sendenKnopf = document.getElementById('sendenKnopf');
+
+        // 2. Auf das Ereignis "chat nachricht" vom Server hören
+        socket.on('chat nachricht', (nachricht) => {
+            const eintrag = document.createElement('li');
+            eintrag.textContent = nachricht;
+            nachrichten.appendChild(eintrag);
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+
+        // Nachricht senden, wenn der Button geklickt wird
+        sendenKnopf.addEventListener('click', () => {
+            const nachricht = nachrichtFeld.value;
+            if (nachricht) {
+                // "chat nachricht"-Ereignis an den Server senden
+                socket.emit('chat nachricht', nachricht);
+
+                // Eingabefeld leeren
+                nachrichtFeld.value = '';
+            }
+        });
+
+        // Nachricht auch durch Drücken der Eingabetaste (Enter) senden
+        nachrichtFeld.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendenKnopf.click();
+            }
+        });
+    </script>
+</body>
+</html>

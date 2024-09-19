@@ -137,8 +137,8 @@ async function createShoppingList(id) {
 console.log('id --->', id);
     try {
         
-        // 7.2 umbenannt
-        return await ShoppingList.create({ shoppingListId: id, entries: [] })
+        
+        return await ShoppingList.create({ userId: id, entries: [] })
     } catch (error) {
         console.log("error",error)
         return null
