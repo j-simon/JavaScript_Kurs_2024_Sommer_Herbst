@@ -27,7 +27,7 @@ io.on('connection', (socket) => {
     // io.emit('chat nachricht', nachricht);
 
     // Hugging Face API Aufruf (ohne Anmeldung möglich, direkt per POST)
-    const HUGGING_FACE_TOKEN = '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'; // Ersetze dies durch deinen Hugging Face Token
+    const HUGGING_FACE_TOKEN = hxx'; // Ersetze dies durch deinen Hugging Face Token, das ist kostenlos
 
     // const response = await fetch('https://api-inference.huggingface.co/models/EleutherAI/gpt-neo-2.7B', {
     // const response = await fetch('https://api-inference.huggingface.co/models/OpenAssistant/oasst-sft-1-pythia-12b', {
