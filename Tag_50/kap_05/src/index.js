@@ -70,6 +70,7 @@ function create() {
   this.physics.add.collider(player, platforms, () => {
     // ue_04
     player.anims.play('jump', true); // Sprung-Animation abspielen
+    ///player.setVelocityY(-400)
   });
 
   // Kamera folgt dem Spieler in der Vertikalen.
