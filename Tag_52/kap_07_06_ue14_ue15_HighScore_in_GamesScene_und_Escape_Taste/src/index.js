@@ -1,4 +1,4 @@
-import GameScene from './Scenes/GameScene.js';
+import GameScene from './scenes/GameScene.js';
 import MenueScene from './scenes/MenuScene.js';
 // ue_13
 import HighscoreScene from './scenes/HighscoreScene.js';

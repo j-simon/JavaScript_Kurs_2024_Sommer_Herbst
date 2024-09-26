@@ -1,3 +1,4 @@
+let text="jens"
 class HighscoreScene extends Phaser.Scene {
     constructor(settings) {
       super('HighscoreScene');
